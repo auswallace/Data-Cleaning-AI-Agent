@@ -1,33 +1,60 @@
 # 🚀 AI-Powered Data Cleaning Pipeline
 
-## 📌 Overview  
-This project is a modular **AI-driven data processing pipeline** designed to **clean, validate, and analyze datasets**. It enables users to:  
-✔ Upload local datasets  
-✔ Scrape tables from websites  
-✔ Download and merge Kaggle datasets  
-✔ Perform automated **data cleaning** using AI and ML models  
-✔ Validate data transformations with **AI-generated insights**  
+## 📌 Table of Contents
+- [Overview](#overview)
+- [How It Works](#how-it-works)
+  - [1️⃣ Data Ingestion](#1️⃣-data-ingestion)
+  - [2️⃣ Data Cleaning (AI-Driven)](#2️⃣-data-cleaning-ai-driven)
+  - [3️⃣ Data Validation & Export](#3️⃣-data-validation--export)
+- [Project Structure](#🏗️-project-structure)
+- [How to Use](#🔧-how-to-use)
+  - [Running the Pipeline](#1️⃣-running-the-pipeline)
+  - [Choosing a Data Source](#2️⃣-choosing-a-data-source)
+  - [Data Cleaning Process](#3️⃣-data-cleaning-process)
+  - [Viewing Cleaning Reports](#4️⃣-viewing-cleaning-reports)
+- [Data Storage & Output](#📂-data-storage--output)
+- [AI Agents & Customization](#🔑-ai-agents--customization)
+- [Dependencies](#🛠️-dependencies)
+- [Contact & Contributions](#📬-contact--contributions)
+- [Why Use AI Agents for Data Cleaning?](#🔥-why-use-ai-agents-for-data-cleaning)
+- [Get Started](#🚀-ready-to-automate-your-data-cleaning)
 
-The system is built with **modularity and scalability** in mind, allowing future extensions for more advanced analytics.
+---
+
+## 📌 Overview  
+This project is a modular **AI-driven data processing pipeline** designed to **clean, validate, and analyze datasets** using intelligent **AI Agents**. These AI Agents automate data transformations and validation, ensuring high data quality.  
+
+### 🔥 **What Makes This AI-Powered?**
+- Uses **OpenAI’s GPT models** to **understand and validate column types**.  
+- Uses **KNN Imputation & Mode Filling** for intelligent **missing value handling**.  
+- Uses a **pre-trained CatBoost model** for **outlier detection & removal**.  
+- AI **Supervisor Agent** provides **post-cleaning validation & suggestions**.  
 
 ---
 
 ## ⚙️ How It Works  
-The project is structured into **three main phases**:
+The project is structured into **three main phases**, all driven by AI-powered cleaning methods:
 
 ### **1️⃣ Data Ingestion**
-- Users can **upload a file**, **scrape data from the web**, or **retrieve a dataset from Kaggle**.
-- The system extracts, processes, and standardizes the data.
+- Users can:
+  - **Upload a local dataset** (.csv or .xlsx)
+  - **Scrape tabular data** from a website  
+  - **Fetch & merge a Kaggle dataset**  
+- The system extracts, processes, and standardizes data.
 
 ### **2️⃣ Data Cleaning (AI-Driven)**
-- **Missing values** are handled using **KNN Imputation**.
-- **Outliers** are detected and removed using a **CatBoost classifier**.
-- **Column data types** are inferred and enforced using **OpenAI’s GPT model**.
+| Column Type      | Cleaning Method Used |
+|-----------------|---------------------|
+| **Numerical**   | **KNN Imputation** estimates missing values based on similar rows |
+| **Categorical** | **Mode Imputation** fills missing values with the most common category |
+| **IDs**         | **Sequential Filling** ensures IDs remain unique and follow a logical order |
+| **Outliers**    | **Isolation Forest (ML model)** detects and removes anomalies |
+| **Data Types**  | **OpenAI GPT model** infers and enforces correct column types |
 
 ### **3️⃣ Data Validation & Export**
-- The cleaned dataset is **validated** by an AI-powered **Supervisor Agent**.
-- Users receive **a report on data quality, transformations, and potential improvements**.
-- The cleaned data is saved in the `cleaned_data/` folder for further analysis.
+- AI **Supervisor Agent** evaluates cleaning steps and suggests **further improvements**.  
+- Users receive **a detailed report on changes and transformations applied**.  
+- Cleaned data is saved in `cleaned_data/` for **further analysis or model training**.  
 
 ---
 
@@ -55,69 +82,3 @@ The project is structured into **three main phases**:
 │── gpt_api_key.txt             # OpenAI API key (DO NOT COMMIT TO GITHUB)
 │── requirements.txt            # Python dependencies
 │── README.md                   # Project documentation
-```
-
----
-
-## 🔧 How to Use
-
-### **1️⃣ Running the Pipeline**
-1. Clone this repository and navigate to the project folder.
-   ```bash
-   git clone https://github.com/your-repo/AI-Data-Cleaning-Pipeline.git
-   cd AI-Data-Cleaning-Pipeline
-   ```
-2. Install required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Run the main script:
-   ```bash
-   python main.py
-   ```
-
-### **2️⃣ Choosing a Data Source**
-Upon running the script, users will be prompted to:
-- Upload a local dataset (.csv or .xlsx) via a **file selection window**.
-- Enter a URL to **scrape tabular data from a website**.
-- Provide a **Kaggle dataset URL** for automated download & merging.
-
-### **3️⃣ Data Cleaning Process**
-Once the dataset is loaded, the AI cleaning agent:
-- Handles missing values, outliers, and incorrect data types.
-- Uses OpenAI's GPT model for column type inference.
-- Stores the cleaned dataset in **cleaned_data/**.
-
-### **4️⃣ Viewing Cleaning Reports**
-The **Supervisor AI Agent** generates a detailed validation report on:
-- Changes made to the dataset.
-- Remaining issues and suggested improvements.
-
----
-
-## 📂 Data Storage & Output
-- **Original datasets remain unchanged**.
-- **Cleaned datasets** are stored in the `cleaned_data/` folder.
-- **Kaggle datasets** are stored in `kaggle_data/`.
-- **Scraped datasets** are processed dynamically.
-
----
-
-## 🔑 API & Configuration
-- Ensure `gpt_api_key.txt` is present with a **valid OpenAI API key**.
-- The **pre-trained CatBoost outlier detection model** is stored in `outlier_model.pkl`.
-- Modify hyperparameters (e.g., KNN neighbors, CatBoost depth) as needed.
-
----
-
-## 🛠️ Dependencies
-Install required Python libraries with:
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## 📬 Contact & Contributions
-For issues, feature requests, or contributions, open a GitHub issue or submit a pull request. Let's build a more powerful AI-driven data cleaning tool together! 🚀
-
