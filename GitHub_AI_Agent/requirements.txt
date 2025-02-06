@@ -1,0 +1,11 @@
+pandas
+numpy
+requests
+beautifulsoup4
+kaggle
+openai
+joblib
+scikit-learn
+catboost
+cryptography
+tk
