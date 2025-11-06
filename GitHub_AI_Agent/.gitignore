@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Data
+data/uploads/*
+data/cleaned/*
+data/cache/*
+!data/.gitkeep
+*.csv
+*.xlsx
+*.xls
+*.json
+*.parquet
+
+# Config
+.env
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Old version
+old_version_archive/
